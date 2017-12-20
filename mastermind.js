@@ -19,7 +19,6 @@ function startGame() {
 	console.log(picked);
 }
 
-
 //generate the board//
 function creategame(){
 	for (rowcount=0; rowcount<12; rowcount++) {
@@ -32,6 +31,10 @@ function creategame(){
 		bullet.setAttribute("onclick","setColor("+column+")");
 		row.appendChild(bullet);
 		}
+		var buttons = document.createElement("button");
+		buttons.onclick="check" + rowcount;
+		
+		
 		game.appendChild(row);
 	}
 }
