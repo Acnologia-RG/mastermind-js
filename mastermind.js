@@ -1,24 +1,23 @@
-
 //const list//
 const game = document.getElementById('game');
-const colors = ["red","blue","orange","green","yellow","purple"];
+const colors = ["red","lightblue","orange","green","pink","purple"];
 const button = document.getElementsByTagName("button");
 //var list//
-var currentColors = [-1, -1, -1, -1]
 
-
+var currentColors = [-1, -1, -1, -1];
+var bullet_row = 0;
+var picked
 //randomcolor//
+
 function getRandomColor() {
 	var random = Math.floor(Math.random()*6);
 	return colors[random];
 }
-
 function startGame() {
 	creategame()
-	var picked = [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()];
+	picked = [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()];
 	console.log(picked);
 }
-
 //generate the board//
 function creategame(){
 	for (rowcount=0; rowcount<12; rowcount++) {
@@ -32,21 +31,37 @@ function creategame(){
 		row.appendChild(bullet);
 		}
 		var buttons = document.createElement("button");
-		buttons.onclick="check" + rowcount;
-		
-		
+		buttons.setAttribute("onclick","check()");
+		buttons.innerHTML = "check row";
+		row.appendChild(buttons);
+		var check 
+
+
 		game.appendChild(row);
 	}
 }
-
 function setColor(a){
-	var bullet = document.getElementById("bullet_0_" + a);
+	var bullet = document.getElementById("bullet_"+bullet_row+"_" + a);
 	currentColors[a]++;
 	if (currentColors[a] == colors.length) {
 		currentColors[a] = 0;
 	}
 	var index = currentColors[a];
 	bullet.style.backgroundColor = colors[index];
+}
+function check(){
+	console.log(picked); 
+
+	for (var bullet_column=0; bullet_column<4; bullet_column++){
+		var bullet = document.getElementById("bullet_"+bullet_row+"_" + bullet_column);
+		if ( bullet.style.backgroundColor === picked[bullet_column]) {
+			console.log("waar")
+		}
+		else {
+			console.log("niet waar")
+		}
+	}
+	bullet_row++;
 }
 
 
