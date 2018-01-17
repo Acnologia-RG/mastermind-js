@@ -5,4 +5,34 @@
 	display: inline-block;
 	border-radius: 50px;
 	border:2px solid #000000;
+	background-color: white;
+}
+.score {
+	width: 20px;
+	height: 20px;
+	margin: 15px 10px;
+	display: inline-block;
+	border-radius: 50px;
+	border:2px solid #000000;
+	background-color: white;
+}
+footer {
+	width: 50%;
+	background-color: gray;
+	padding: 15px;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+h1 {
+	margin:15px;
+}
+button {
+	margin:15px;
+	
+}
+body {
+	background-color: rgba(64, 0, 128, 0.7);
+}
+* {
+	margin: 0px;
 }
